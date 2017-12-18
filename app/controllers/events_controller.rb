@@ -8,7 +8,9 @@ class EventsController < ApplicationController
     @people = @event.people
     respond_to do |format|
         format.html
-        format.json
+        format.json {
+          render :json => @people.to_json
+        }
     end
   end
 end
